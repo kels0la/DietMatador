@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import MainPageContainer from './pages/Main/MainPageContainer';
+import { Nav } from './components/Nav';
 
 class App extends Component {
 
@@ -12,9 +14,11 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
-        hello
-      </React.Fragment>
+      <Router>
+        <Nav/>
+        <Route exact path="/" component={MainPageContainer} />
+        
+      </Router>
     );
   }
 }
