@@ -3,14 +3,15 @@ const express = require('express');
 const bodyParser = require('body-parser');
 // const mongoose = require('mongoose');
 // const admin = require('firebase-admin');
+// testing
 const app = express();
 
 const PORT = process.env.PORT || 3001;
 
 // Define middleware here
-app.use(urlencoded({ extended: true }));
-app.use(json());
-app.use(static('public'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(express.static('public'));
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === 'production') {
