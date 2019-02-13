@@ -1,6 +1,8 @@
 require('dotenv').config()
-import express, { static } from 'express';
-import { urlencoded, json } from 'body-parser';
+const express = require('express');
+const bodyParser = require('body-parser');
+// const mongoose = require('mongoose');
+// const admin = require('firebase-admin');
 const app = express();
 
 const PORT = process.env.PORT || 3001;
