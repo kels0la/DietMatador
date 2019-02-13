@@ -1,5 +1,13 @@
+body {
+  background-image: linear-gradient(
+    to left,
+    rgb(249, 1, 2),
+    rgb(104, 198, 90)
+  );
+}
+
 .boxShadow {
-  box-shadow: 0 0 10px white;
+  box-shadow: 0 0 10px red;
 }
 
 .modalTop {
@@ -24,4 +32,4 @@
   .Modal {
     width: 80%;
   }
-} 
+}
