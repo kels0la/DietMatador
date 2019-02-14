@@ -1,7 +1,7 @@
 import React from 'react';
-// import { firebase, auth } from '../../firebase'
+import { firebase, auth } from '../../firebase';
 // import axios from 'axios'
-// import { B } from '../Widgets';
+import { B } from '../Widgets';
 
 import ModalWrapper from './ModalWrapper';
 
@@ -20,6 +20,15 @@ class JoinModal extends React.Component {
   handleChange = (event) => {
     const { name, value } = event.target
     this.setState({ [name]: value, error: null })
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    auth
+      .doCreateUserWithEmailAndPassword(this.state.email, this.state.passwordTwo)
+      .then(() => {
+        console.log("works" + this.state.email);
+      })
   }
 
   // handleSubmit = (event) => {
@@ -80,8 +89,8 @@ class JoinModal extends React.Component {
         <hr className="border-brand-green border hrModals"></hr>
 
         <div className=''>
-          {/* <form onSubmit={this.handleSubmit}> */}
-          <form>
+          <form onSubmit={this.handleSubmit}>
+          {/* <form> */}
             <div className='text-sm font-body text-light-gray'>
               <label htmlFor='username'>Username</label>
               <div className='-ml-2 mr-2'>
@@ -138,7 +147,7 @@ class JoinModal extends React.Component {
                 </div>
               </div>
             </div>
-            {/* <B disabled={isInvalid} btnType={'secondary'}>Sign Up</B> */}
+            <B disabled={isInvalid} btnType={'secondary'}>Sign Up</B>
           </form>
         </div>
       </ModalWrapper >
