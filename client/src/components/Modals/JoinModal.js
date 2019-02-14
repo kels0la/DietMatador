@@ -26,8 +26,9 @@ class JoinModal extends React.Component {
     e.preventDefault();
     auth
       .doCreateUserWithEmailAndPassword(this.state.email, this.state.passwordTwo)
-      .then(() => {
-        console.log("works" + this.state.email);
+      .then(() => this.props.closeModal())
+      .catch(error => {
+        this.setState({ error })
       })
   }
 

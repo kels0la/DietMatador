@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
+import { NavLoggedIn, NavNotLoggedIn } from "../Nav";
 import DMLogoFB from '../../assets/images/DMLogoFB.png';
-import { NavNotLoggedIn } from "../Nav";
+import { auth } from '../../firebase';
+import AuthUserContext from '../Session/AuthUserContext';
 
 export class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      
     };
+  };
+
+  logOutHandler = (event) => {
+    event.preventDefault();
+    auth.doSignOut();
   };
 
   render() {
@@ -20,7 +27,14 @@ export class Nav extends Component {
           </div>
           </div>
           {/* Will be switched to a ternary operator once auth is added */}
-          <NavNotLoggedIn {...this.props} />
+          <AuthUserContext.Consumer>
+              {
+                authUser =>
+                  authUser
+                    ? <NavLoggedIn {...this.props} logOutHandler={this.logOutHandler} />
+                    : <NavNotLoggedIn {...this.props} />
+              }
+            </AuthUserContext.Consumer>
         </nav>
       </React.Fragment>
     )
