@@ -1,0 +1,46 @@
+[
+  
+  {
+    "id": 1,
+    "name": "Diet Matador Feed",
+    "href": "feed",
+    "description": "Diet Matador Feed"
+  },
+  {
+    "id": 2,
+    "name": "Stories",
+    "href": "stories",
+    "description": "Stories"
+  },
+  {
+    "id": 3,
+    "name": "Natural Cooking",
+    "href": "naturalcooking",
+    "description": "Natural Cooking"
+  },
+  {
+    "id": 4,
+    "name": "Discussion",
+    "href": "discussion",
+    "description": "Discussion Forum"
+  },
+  {
+    "id": 5,
+    "name": "#NATS",
+    "href": "nats",
+    "description": "Nature's Advantage Tweets"
+  },
+  {
+    "id": 6,
+    "name": "Informational",
+    "href": "informational",
+    "description": "Informational"
+  },
+  {
+    "id": 7,
+    "name": "Purchase",
+    "href": "purchase",
+    "description": "Purchase"
+  }
+
+]
