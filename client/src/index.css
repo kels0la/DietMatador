@@ -1,4 +1,16 @@
 body {
+  background: #121212;
+  font-family: 'Montserrat', sans-serif;
+  color: #D8D8D8;
+  /*overflow: hidden; */
+  margin: 0;
+}
+
+a:link{
+  text-decoration: none;
+}
+
+.nav {
   background-image: linear-gradient(
     to left,
     rgb(249, 1, 2),
