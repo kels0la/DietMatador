@@ -3,9 +3,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 // const mongoose = require('mongoose');
 // const admin = require('firebase-admin');
+const routes = require('./routes');
 const app = express();
 
 const PORT = process.env.PORT || 3001;
+
+// Connect to the Mongo DB
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/dietMatador', { useNewUrlParser: true });
+mongoose.set('useCreateIndex', true)
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,6 +21,10 @@ app.use(express.static('public'));
 if (process.env.NODE_ENV === 'production') {
   app.use(static('client/build'));
 }
+
+// Add routes
+// require('./routes/api/paramHelpers')(app)
+app.use(routes);
 
 // Start the API server
 app.listen(PORT, function () {
