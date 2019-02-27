@@ -46,6 +46,8 @@ let defaultConfig = require('tailwindcss/defaultConfig')()
 let colors = {
 
   'link-color': '#007bff',
+  'brand-green': '#2BA228',
+  'dark-green': '#195D1D',
   'light-gray': '#D8D8D8',
   'medium-gray': '#5E5E5E',
   'medium-gray-darker': '#2d2d2d',
@@ -168,6 +170,7 @@ module.exports = {
       '-apple-system',
       'Segoe UI',
       'Roboto',
+      'Montserrat',
       'Oxygen',
       'Ubuntu',
       'Cantarell',
@@ -426,6 +429,7 @@ module.exports = {
     'lg': '.5rem',
     'full': '9999px',
     '4px': '4px',
+    'xl': '.75rem'
   },
 
 

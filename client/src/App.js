@@ -1,7 +1,19 @@
+// React
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+// Pages
 import MainPageContainer from './pages/Main/MainPageContainer';
+import NoMatch from './pages/NoMatch';
+// import AccountContainer from './pages/Account';
+// import MainPageContainer from './pages/Main/MainPageContainer';
+// import PostDetailPage from './pages/Content/PostDetailPage';
+// import { ProfileContainer } from './pages/Profile/ProfileContainer';
+// import authTest from './pages/AUTH-TEST';
+
+// Json file and navigation
 import { Nav } from './components/Nav';
+import categories from './categories.json';
 
 // Higher Order Components
 import withModals from './components/Modals/withModals'
@@ -11,7 +23,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      
+      categories: categories,
     };
   };
 
@@ -19,8 +31,19 @@ class App extends Component {
     return (
       <Router>
         <Nav openModal={this.openModal}/>
-        <Route exact path="/" component={MainPageContainer} />
-        
+          <Switch>
+          <Route exact path="/" component={MainPageContainer} />
+          <Route exact path='/categories/:categoryName' component={MainPageContainer} />
+          {/* <Route exact path='/categories/:categoryName/posts/new' component={EditorPageContainer} />
+          <Route exact path='/posts/:postId' component={PostDetailPage} />
+          <Route exact path='/posts/:postId/edit' component={EditorPageContainer} />
+          <Route exact path='/account' component={AccountContainer} />
+          <Route exact path='/users/:id' component={ProfileContainer} />
+          <Route exact path='/editor' component={EditorPageContainer} />
+          <Route exact path='/editor/:postId' component={EditorPageContainer} /> */}
+          {/* <Route exact path='/(authtest|postman)' component={authTest} /> */}
+          <Route component={NoMatch} />
+        </Switch>
       </Router>
     );
   }

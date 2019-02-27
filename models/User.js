@@ -22,7 +22,6 @@ const UserSchema = new Schema({
     type: String
   },
   permissions: [String], // array of string identifiers for permission groups
-  moneyBtnId: String // will be required
 },
 {
   timestamps: true

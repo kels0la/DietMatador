@@ -8,12 +8,12 @@ export const NavNotLoggedIn = (props) => {
       {openModal => (
         <React.Fragment>
           <div className='items-center mt-px'>
-            {/* <div className="inline-flex" data-toggle="collapse" data-target="#navbar-collapse.in">
-                <a className='text-base font-header' onClick={(e) => openModal(e, 'LOGIN')} href='/'>Login</a>
-                <span className="sr-only">Login</span>
-            </div> */}
             <div className="inline-flex" data-toggle="collapse" data-target="#navbar-collapse.in">
-                <Button className='outline-none text-base text-red' text={'Get Started'} onClick={(e) => openModal(e, 'JOIN')} href='/'>Get Started</Button>
+                <a className='text-light-gray text-base font-header hover:text-brand-green no-underline' onClick={(e) => openModal(e, 'LOGIN')} href='/'>Login</a>
+                <span className="sr-only">Login</span>
+            </div>
+            <div className="inline-flex" data-toggle="collapse" data-target="#navbar-collapse.in">
+                <Button className='btn btn-nav btn-nav:hover btn-nav:active outline-none text-base' text={'Get Started'} onClick={(e) => openModal(e, 'JOIN')} href='/'>Get Started</Button>
                 <span className="sr-only">Get Started</span>
             </div>
             </div>
