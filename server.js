@@ -1,7 +1,7 @@
 require('dotenv').config()
 const express = require('express');
 const bodyParser = require('body-parser');
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 // const admin = require('firebase-admin');
 const routes = require('./routes');
 const app = express();

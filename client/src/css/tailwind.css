@@ -633,7 +633,7 @@ input {
 }
 
 .input:disabled {
-  border-color: #2ba228;
+  border-color: #e3342f;
   color: #515356;
 }
 
@@ -647,7 +647,7 @@ input {
 .btn {
   border-width: 2px;
   border-radius: .5rem;
-  border-color: #2ba228;
+  border-color: #fff;
   padding-left: .5rem;
   padding-right: .5rem;
   padding-top: 1px;
@@ -659,35 +659,35 @@ input {
 }
 
 .btn-primary {
-  background-color: #2ba228;
+  background-color: #e3342f;
   color: #d8d8d8;
 }
 
 .btn-primary:hover {
   background-color: transparent;
-  border-color: #2ba228;
-  color: #2ba228;
+  border-color: #fff;
+  color: #e3342f;
 }
 
 .btn-primary:active {
-  background-color: #2ba228;
+  background-color: #e3342f;
   color: #d8d8d8;
   outline: 0;
 }
 
 .btn-secondary {
   background-color: transparent;
-  color: #2ba228;
+  color: #e3342f;
 }
 
 .btn-secondary:hover {
-  background-color: #2ba228;
-  border-color: #2ba228;
+  background-color: #e3342f;
+  border-color: #fff;
   color: #d8d8d8;
 }
 
 .btn-secondary:active {
-  background-color: #2ba228;
+  background-color: #e3342f;
   color: #d8d8d8;
   outline: 0;
 }
@@ -698,13 +698,13 @@ input {
 }
 
 .btn-nav:hover {
-  background-color: #2ba228;
-  border-color: #2ba228;
+  background-color: #e3342f;
+  border-color: #fff;
   color: #d8d8d8;
 }
 
 .btn-nav:active {
-  background-color: #2ba228;
+  background-color: #e3342f;
   color: #d8d8d8;
   outline: 0;
   border-radius: .75rem;

@@ -9,7 +9,7 @@ export const NavNotLoggedIn = (props) => {
         <React.Fragment>
           <div className='items-center mt-px'>
             <div className="inline-flex" data-toggle="collapse" data-target="#navbar-collapse.in">
-                <a className='text-light-gray text-base font-header hover:text-brand-green no-underline' onClick={(e) => openModal(e, 'LOGIN')} href='/'>Login</a>
+                <a className='text-light-gray text-base font-header hover:text-black no-underline' onClick={(e) => openModal(e, 'LOGIN')} href='/'>Login</a>
                 <span className="sr-only">Login</span>
             </div>
             <div className="inline-flex" data-toggle="collapse" data-target="#navbar-collapse.in">

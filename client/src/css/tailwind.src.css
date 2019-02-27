@@ -91,7 +91,7 @@
     }
 
     .input:disabled {
-        @apply border-brand-green text-input-disabled
+        @apply border-red text-input-disabled
     }
 
     /*
@@ -102,31 +102,31 @@
     */
 
     .btn {
-        @apply border-2 rounded-lg border-brand-green px-2 py-px ml-5 mt-2 font-header text-xl
+        @apply border-2 rounded-lg border-white px-2 py-px ml-5 mt-2 font-header text-xl
     }
 
     .btn-primary {
-        @apply bg-brand-green text-light-gray
+        @apply bg-red text-light-gray
     }
 
     .btn-primary:hover {
-        @apply bg-transparent border-brand-green text-brand-green
+        @apply bg-transparent border-white text-red
     }
 
     .btn-primary:active {
-        @apply bg-brand-green text-light-gray outline-none
+        @apply bg-red text-light-gray outline-none
     }
     
     .btn-secondary {
-        @apply bg-transparent text-brand-green
+        @apply bg-transparent text-red
     }
 
     .btn-secondary:hover {
-        @apply bg-brand-green border-brand-green text-light-gray 
+        @apply bg-red border-white text-light-gray 
     }
 
     .btn-secondary:active {
-        @apply bg-brand-green text-light-gray outline-none 
+        @apply bg-red text-light-gray outline-none 
     }
 
     .btn-nav {
@@ -134,11 +134,11 @@
     }
 
     .btn-nav:hover {
-      @apply bg-brand-green border-brand-green text-light-gray
+      @apply bg-red border-white text-light-gray
     }
 
     .btn-nav:active {
-      @apply bg-brand-green text-light-gray outline-none rounded-xl
+      @apply bg-red text-light-gray outline-none rounded-xl
     }
     
  /**
