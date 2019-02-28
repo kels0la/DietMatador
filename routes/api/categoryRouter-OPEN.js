@@ -5,7 +5,10 @@ const db = require('../../models')
 require('./paramHelpers')(categoryRouter)
 
 categoryRouter.route('/categories')
-  .get(categoryController.findAll)
+  .get((req, res, next) => {
+    console.log(req)
+    next()
+  } , categoryController.findAll)
 // .post(authCheck, categoryController.create)
 
 categoryRouter.route('/categories/id/:id')

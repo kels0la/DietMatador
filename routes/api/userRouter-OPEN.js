@@ -18,6 +18,8 @@ router.get('/users/id/:id/posts', (req, res) => {
     .catch(err => res.status(500).json(err))
 })
 
+
+
 router.get('/users/id/:id/profile', (req, res) => {
   db.User
     .findById(req.params.id)

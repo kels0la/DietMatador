@@ -1,6 +1,7 @@
 const userController = require('../../controllers/userController')
 const router = require('express').Router();
 const db = require('../../models')
+const isAdmin = require('../../middleware/permissionMiddleware').isAdmin;
 
 router.get('/users/id/:id', userController.findById)
 
@@ -40,17 +41,29 @@ router.get('/users/id/:id/posts/drafts', (req, res) => {
     })
 })
 
+router.get('/test', isAdmin, (req, res) => {
+  res.send("Hello admin")
+})
+
+router.get('/test2', (req, res) => {
+  if (res.locals.user) {
+    console.log("res locals ", res.locals.user)
+    res.json(res.locals.user)
+  } else {
+    res.json(res.locals)
+  }
+})
+
 router.post('/users', (req, res) => {
   console.log('\n>>> POST -- req.originalUrl: ', req.originalUrl)
   console.log('>>> POST -- req.body: \n', req.body)
   console.log('>>> POST -- res.locals\n', res.locals)
-  const { username, moneyBtnId } = req.body
+  const { username } = req.body
   const userData = {
     username: username,
     email: res.locals.user.token.email,
     uid: res.locals.user.token.uid,
-    permissions: ['user'],
-    moneyBtnId: moneyBtnId
+    permissions: ['user']
   }
 
   db.User.find({ username })
