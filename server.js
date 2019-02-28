@@ -2,11 +2,14 @@ require('dotenv').config()
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-// const admin = require('firebase-admin');
+const admin = require('firebase-admin');
 const routes = require('./routes');
 const app = express();
 
 const PORT = process.env.PORT || 3001;
+
+// Graps required config from .env
+admin.initializeApp()
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/dietMatador', { useNewUrlParser: true });
