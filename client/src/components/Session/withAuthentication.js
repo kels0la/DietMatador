@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axios from '../../utils/authAxios';
 
 import AuthUserContext from "./AuthUserContext";
 import { firebase } from "../../firebase";
@@ -18,12 +18,14 @@ const withAuthentication = (Component) =>
 
     componentDidMount() {
       firebase.auth.onAuthStateChanged(authUser => {
+        console.log("component did mount: ", authUser)
         if (authUser) {
           axios({
             method: "get",
             url: "/api/users/uid/" + authUser.uid
           })
             .then(dbUser => {
+              console.log(dbUser)
               this.setState({
                 authUser: authUser,
                 dbUser: dbUser.data

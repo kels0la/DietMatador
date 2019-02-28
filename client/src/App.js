@@ -9,7 +9,7 @@ import NoMatch from './pages/NoMatch';
 // import MainPageContainer from './pages/Main/MainPageContainer';
 // import PostDetailPage from './pages/Content/PostDetailPage';
 // import { ProfileContainer } from './pages/Profile/ProfileContainer';
-// import authTest from './pages/AUTH-TEST';
+import authTest from './pages/AUTH-TEST';
 
 // Json file and navigation
 import { Nav } from './components/Nav';
@@ -17,6 +17,7 @@ import categories from './categories.json';
 
 // Higher Order Components
 import withModals from './components/Modals/withModals'
+import withAuthentication from './components/Session/withAuthentication';
 
 class App extends Component {
 
@@ -41,7 +42,7 @@ class App extends Component {
           <Route exact path='/users/:id' component={ProfileContainer} />
           <Route exact path='/editor' component={EditorPageContainer} />
           <Route exact path='/editor/:postId' component={EditorPageContainer} /> */}
-          {/* <Route exact path='/(authtest|postman)' component={authTest} /> */}
+          <Route exact path='/(authtest|postman)' component={authTest} />
           <Route component={NoMatch} />
         </Switch>
       </Router>

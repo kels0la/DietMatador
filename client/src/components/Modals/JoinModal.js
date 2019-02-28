@@ -1,6 +1,6 @@
 import React from 'react';
 import { firebase, auth } from '../../firebase';
-// import axios from 'axios'
+import axios from 'axios'
 import { B } from '../Widgets';
 
 import ModalWrapper from './ModalWrapper';
@@ -22,54 +22,54 @@ class JoinModal extends React.Component {
     this.setState({ [name]: value, error: null })
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    auth
-      .doCreateUserWithEmailAndPassword(this.state.email, this.state.passwordTwo)
-      .then(() => this.props.closeModal())
-      .catch(error => {
-        this.setState({ error })
-      })
-  }
-
-  // handleSubmit = (event) => {
-  //   event.preventDefault()
-  //   const { username, email, passwordOne, moneyBtnId } = this.state
-
-  //   axios.get('/api/users/username/' + username)
-  //     .then(response => {
-  //       // console.log('join reponse', response)
-  //       if (response.data) {
-  //         throw new Error('Username is already taken')
-  //       }
-  //       return auth.doCreateUserWithEmailAndPassword(email, passwordOne)
-  //     })
-  //     .then(authUser => {
-  //       let token = firebase.auth.currentUser.getIdToken()
-  //       return Promise.all([authUser, token])
-  //     })
-  //     .then(([authUser, authToken]) => {
-  //       // console.log(authUser)
-  //       return axios({
-  //         url: '/api/users',
-  //         method: 'post',
-  //         data: {
-  //           username: username,
-  //           uid: authUser.user.uid,
-  //           email: email,
-  //           moneyBtnId: moneyBtnId
-  //         },
-  //         headers: {
-  //           'Authorization': 'Bearer ' + authToken
-  //         }
-  //       })
-  //     })
-  //     // .then(response => console.log(response))
+  // handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   auth
+  //     .doCreateUserWithEmailAndPassword(this.state.email, this.state.passwordTwo)
   //     .then(() => this.props.closeModal())
   //     .catch(error => {
   //       this.setState({ error })
   //     })
   // }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    const { username, email, passwordOne } = this.state
+
+    axios.get('/api/users/username/' + username)
+      .then(response => {
+        // console.log('join reponse', response)
+        if (response.data) {
+          throw new Error('Username is already taken')
+        }
+        return auth.doCreateUserWithEmailAndPassword(email, passwordOne)
+      })
+      .then(authUser => {
+        let token = firebase.auth.currentUser.getIdToken()
+        return Promise.all([authUser, token])
+      })
+      .then(([authUser, authToken]) => {
+        // console.log(authUser)
+        return axios({
+          url: '/api/users',
+          method: 'post',
+          data: {
+            username: username,
+            // from firebase
+            uid: authUser.user.uid,
+            email: email
+          },
+          headers: {
+            'Authorization': 'Bearer ' + authToken
+          }
+        })
+      })
+      // .then(response => console.log(response))
+      .then(() => this.props.closeModal())
+      .catch(error => {
+        this.setState({ error })
+      })
+  }
 
   render() {
 

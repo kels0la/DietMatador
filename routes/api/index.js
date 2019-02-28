@@ -1,5 +1,5 @@
 const router = require('express').Router();
-// const authCheck = require('../../middleware/firebaseAuthMiddleware')
+const authCheck = require('../../middleware/firebaseAuthMiddleware')
 
 const userRouter = require('./userRouter-OPEN')
 const userRouter_AUTH = require('./userRouter-AUTH')
@@ -11,8 +11,9 @@ const userRouter_AUTH = require('./userRouter-AUTH')
 //  As of now it's unclear which router should have a route like `/api/posts/:postId/comments`.
 //  Should it be the first entity or last?
 
-// router.use(authCheck)
+
 router.use(userRouter)
+router.use(authCheck)
 router.use(userRouter_AUTH)
 
 module.exports = router;

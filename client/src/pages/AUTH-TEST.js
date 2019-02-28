@@ -1,5 +1,5 @@
 import React from 'react'
-import withAuthorization from '../components/AuthUserSession/withAuthorization'
+import withAuthorization from '../components/Session/withAuthorization'
 import axios from '../utils/authAxios'
 
 class AuthTest extends React.Component {

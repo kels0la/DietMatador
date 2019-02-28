@@ -7,7 +7,7 @@ const isAdmin = (req, res, next) => {
   console.log('res.locals ', res.locals)
   console.log('res.locals.user.dbUser ', res.locals.user.dbUser)
   const dbUser = res.locals.user.dbUser
-  if (dbUser.permissions.includes(group.ADMIN)) {
+  if (dbUser.permissions === group.ADMIN) {
     next()
   } else {
     res.status(403).json({ message: 'Admin Only' })

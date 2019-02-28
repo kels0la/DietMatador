@@ -21,7 +21,11 @@ const UserSchema = new Schema({
   bio: {
     type: String
   },
-  permissions: [String], // array of string identifiers for permission groups
+  permissions: {
+    type: String,
+    enum: ['admin','user'],
+    required: true
+  }, // array of string identifiers for permission groups
 },
 {
   timestamps: true
