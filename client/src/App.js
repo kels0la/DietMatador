@@ -49,4 +49,4 @@ class App extends Component {
   }
 }
 
-export default (withModals(App));
+export default withAuthentication(withModals(App));
