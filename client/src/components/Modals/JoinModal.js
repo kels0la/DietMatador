@@ -44,6 +44,15 @@ class JoinModal extends React.Component {
         }
         return auth.doCreateUserWithEmailAndPassword(email, passwordOne)
       })
+      // Verification E-mail. Need a wall to prevent user from using application before verification
+      .then(() => {
+        return auth.sendEmailVerification()
+        .then(() => {
+          console.log('verification email sent!')
+        }).catch((error) => {
+          (console.log(error))
+        });
+      })
       .then(authUser => {
         let token = firebase.auth.currentUser.getIdToken()
         return Promise.all([authUser, token])
