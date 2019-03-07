@@ -25,9 +25,10 @@ export class Nav extends Component {
           <div className='inline-flex border-solid border-4 border-soft-black rounded'>
             <img className='rounded border-solid border-2 border-leaf-green' src={DMLogoFB} alt='Diet Matador'></img>
           </div>
-          </div>
+        </div>
           {/* Will be switched to a ternary operator once auth is added */}
-          <AuthUserContext.Consumer>
+          <div className='relative group'>
+            <AuthUserContext.Consumer>
               {
                 authUser =>
                   authUser
@@ -35,6 +36,7 @@ export class Nav extends Component {
                     : <NavNotLoggedIn {...this.props} />
               }
             </AuthUserContext.Consumer>
+          </div>
         </nav>
       </React.Fragment>
     )

@@ -11,7 +11,9 @@ export const NavLoggedIn = (props) => {
             </div>
             <hr className="border-t-2 mx-2 border-white -mt-px"></hr>
             <div className="absolute p-1 -mt-2 mr-2 bg-soft-black text-center p-2 rounded-b-lg invisible group-hover:visible w-full border-solid border-b border-l border-r border-white">
-              <div onClick={(event) => props.logOutHandler(event)} data-toggle="collapse" data-target="#navbar-collapse.in"><Link className="text-light-gray text-sm font-header hover:text-red" to="/">Sign Out</Link><span className="sr-only">Sign Out</span></div>
+              <div onClick={(event) => props.logOutHandler(event)} data-toggle="collapse" data-target="#navbar-collapse.in">
+              <Link className="text-light-gray text-sm font-header hover:text-red" to="/">Sign Out</Link>
+              <span className="sr-only">Sign Out</span></div>
             </div>
          </div>
         </React.Fragment>

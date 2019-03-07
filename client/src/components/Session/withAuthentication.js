@@ -12,77 +12,86 @@ const withAuthentication = (Component) =>
       this.state = {
         authUser: null,
         dbUser: null,
-        authToken: null
+        authToken: null,
+        email: null
       };
     };
 
     componentDidMount() {
       firebase.auth.onAuthStateChanged(authUser => {
-        console.log("component did mount: ", authUser)
         if (authUser) {
-          axios({
-            method: "get",
-            url: "/api/users/uid/" + authUser.uid
-          })
-            .then(dbUser => {
-              console.log(dbUser)
-              this.setState({
-                authUser: authUser,
-                dbUser: dbUser.data
-              });
-            })
-            .then(() => firebase.auth.currentUser.getIdToken())
-            .then(authToken => this.setState({ authToken }))
-            .catch(err => console.log(err));
+          axios.get('/api/users/uid/' + authUser.uid)
+            .then(result => this.setState({ authUser: authUser, dbUser: result.data }, console.log(result)))
+            .catch(err => console.log('withAuthentication ERROR: ', err))
         } else {
-          this.setState({
-            authUser: null,
-            dbUser: null
-          });
-        };
-      });
-    };
-
-    requestWithAuth = (method, url, data) => {
-      const { authToken } = this.state
-      return axios({
-        method: method,
-        url: url,
-        data: data,
-        headers: {
-          "Authorization": "Bearer " + authToken
+          this.setState({ authUser: null, dbUser: null })
         }
+
+        // if (authUser) {
+        //   axios({
+        //     method: "get",
+        //     url: "/api/users/uid/" + authUser.uid
+        //   })
+        //     .then(dbUser => {
+        //       console.log(dbUser)
+        //       this.setState({
+        //         authUser: authUser,
+        //         dbUser: dbUser.data,
+        //         email: dbUser.data.email
+        //       });
+        //     })
+        //     .then(() => firebase.auth.currentUser.getIdToken())
+        //     .then(authToken => this.setState({ authToken }))
+        //     .catch(err => console.log(err));
+        // } else {
+        //   this.setState({
+        //     authUser: null,
+        //     dbUser: null
+        //   });
+        // };
       });
     };
 
-    getWithAuth = (url) => {
-      return this.requestWithAuth("get", url, null);
-    };
+    // requestWithAuth = (method, url, data) => {
+    //   const { authToken } = this.state
+    //   return axios({
+    //     method: method,
+    //     url: url,
+    //     data: data,
+    //     headers: {
+    //       "Authorization": "Bearer " + authToken
+    //     }
+    //   });
+    // };
 
-    postWithAuth = (url, data) => {
-      return this.requestWithAuth("post", url, data);
-    };
+    // getWithAuth = (url) => {
+    //   return this.requestWithAuth("get", url, null);
+    // };
 
-    serverVerifyToken() {
-      firebase.auth.currentUser.getIdToken(/* force refresh */ true)
-        .then(idToken => {
-          axios({
-            method: "post",
-            url: "/api/secret",
-            data: { idToken }
-          }).then(result => {
-            // console.log("result: ", result)
-            return;
-          });
-        });
-    };
+    // postWithAuth = (url, data) => {
+    //   return this.requestWithAuth("post", url, data);
+    // };
+
+    // serverVerifyToken() {
+    //   firebase.auth.currentUser.getIdToken(/* force refresh */ true)
+    //     .then(idToken => {
+    //       axios({
+    //         method: "post",
+    //         url: "/api/secret",
+    //         data: { idToken }
+    //       }).then(result => {
+    //         // console.log("result: ", result)
+    //         return;
+    //       });
+    //     });
+    // };
 
     render() {
       const { authUser, dbUser } = this.state;
 
       if (authUser) {
         authUser.dbUser = dbUser;
-        authUser.requestWithAuth = this.requestWithAuth;
+        // authUser.requestWithAuth = this.requestWithAuth;
       };
 
       return (

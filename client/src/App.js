@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // Pages
 import MainPageContainer from './pages/Main/MainPageContainer';
 import NoMatch from './pages/NoMatch';
-// import AccountContainer from './pages/Account';
+import AccountContainer from './pages/Account';
 // import MainPageContainer from './pages/Main/MainPageContainer';
 // import PostDetailPage from './pages/Content/PostDetailPage';
 // import { ProfileContainer } from './pages/Profile/ProfileContainer';
@@ -37,9 +37,9 @@ class App extends Component {
           <Route exact path='/categories/:categoryName' component={MainPageContainer} />
           {/* <Route exact path='/categories/:categoryName/posts/new' component={EditorPageContainer} />
           <Route exact path='/posts/:postId' component={PostDetailPage} />
-          <Route exact path='/posts/:postId/edit' component={EditorPageContainer} />
+          <Route exact path='/posts/:postId/edit' component={EditorPageContainer} /> */}
           <Route exact path='/account' component={AccountContainer} />
-          <Route exact path='/users/:id' component={ProfileContainer} />
+          {/* <Route exact path='/users/:id' component={ProfileContainer} />
           <Route exact path='/editor' component={EditorPageContainer} />
           <Route exact path='/editor/:postId' component={EditorPageContainer} /> */}
           <Route exact path='/(authtest|postman)' component={authTest} />
